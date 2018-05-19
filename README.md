@@ -10,37 +10,37 @@ In lieu of a README (which I am not nearly ready for), please enjoy my
 
 ## TODO.md
 ### API & Development
-[ ] Figure out how tests work
-[ ] Merkle roots: can I just [`merkle-tree-gen`](https://www.npmjs.com/package/merkle-tree-gen) my array of `txid`s which came in since the last block mined?
-[ ] In the lightning-striking-a-shark-mid-attackishly small chance of my app mining something, how hard is it to make it capable of submitting block to network?
-  [ ] Ethics of hardcoding my wallet address for the coinbase?
+- [ ] Figure out how tests work
+- [ ] Merkle roots: can I just [`merkle-tree-gen`](https://www.npmjs.com/package/merkle-tree-gen) my array of `txid`s which came in since the last block mined?
+- [ ] In the lightning-striking-a-shark-mid-attackishly small chance of my app mining something, how hard is it to make it capable of submitting block to network?
+  - [ ] Ethics of hardcoding my wallet address for the coinbase?
 
 ### Network
-[ ] Transition to Bitpay API running locally instead of public API
-[ ] Bitpay API: Can I quickly download only the last x blocks? I only need headers.
+- [ ] Transition to Bitpay API running locally instead of public API
+- [ ] Bitpay API: Can I quickly download only the last x blocks? I only need headers.
 
 ### Structure
-[ ] Which is better: arrays of blocks, or blocks with properties like `height` and `isInChain`?
-[ ] How can I do kind of a "rolling array"? Eg: I'll only need the last 5-100 blocks, and they can drop off after that.
+- [ ] Which is better: arrays of blocks, or blocks with properties like `height` and `isInChain`?
+- [ ] How can I do kind of a "rolling array"? Eg: I'll only need the last 5-100 blocks, and they can drop off after that.
 
 ### Design
-[ ] Best way to tween things with morphable?
-  [ ] Canvas? SVG? Good ol divs but everything absolute and with lots of CSS transitions?
-[ ] Display in little endian or big? Probably big.
-[ ] What to display in block?
-  [ ] Height?
-  [ ] Hash?
-  [ ] Miner?
-  [ ] Total transacted value?
-[ ] Should I abbreviate hash like git does? If so, would have to be from right.
+- [ ] Best way to tween things with morphable?
+  - [ ] Canvas? SVG? Good ol divs but everything absolute and with lots of CSS transitions?
+- [ ] Display in little endian or big? Probably big.
+- [ ] What to display in block?
+  - [ ] Height?
+  - [ ] Hash?
+  - [ ] Miner?
+  - [ ] Total transacted value?
+- [ ] Should I abbreviate hash like git does? If so, would have to be from right.
 
 ### Funs to Have
-[ ] Dictionary of Well-known addresses
-  [ ] Donation addresses (Wikipedia, Linux, xkcd, etc.)
-  [ ] Satoshi
-  [ ] Mine
-[ ] Mobile interface
-[ ] 
+- [ ] Dictionary of Well-known addresses
+  - [ ] Donation addresses (Wikipedia, Linux, xkcd, etc.)
+  - [ ] Satoshi
+  - [ ] Mine
+- [ ] Mobile interface
+- [ ] 
 
 ### Layout
 ```

@@ -1,0 +1,24 @@
+{
+  "name": "blockchainsaw",
+  "version": "0.0.1",
+  "description": "A realtime visualization of Bitcoin mining",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/unitof/blockchainsaw.git"
+  },
+  "keywords": [
+    "bitcoin",
+    "blockchain",
+    "visualization"
+  ],
+  "author": "Jacob Ford <j@cobford.com>",
+  "license": "CC-BY-SA-4.0",
+  "bugs": {
+    "url": "https://github.com/unitof/blockchainsaw/issues"
+  },
+  "homepage": "https://github.com/unitof/blockchainsaw#readme"
+}

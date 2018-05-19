@@ -25,7 +25,7 @@ In lieu of a README (which I am not nearly ready for), please enjoy my
 
 ### Design
 - [ ] Best way to tween things with morphable?
-  - [ ] Canvas? SVG? Good ol divs but everything absolute and with lots of CSS transitions?
+  - [ ] Canvas? SVG? d3? Good ol divs but everything absolute and with lots of CSS transitions (my specialty)?
 - [ ] Display in little endian or big? Probably big.
 - [ ] What to display in block?
   - [ ] Height?
@@ -39,8 +39,8 @@ In lieu of a README (which I am not nearly ready for), please enjoy my
   - [ ] Donation addresses (Wikipedia, Linux, xkcd, etc.)
   - [ ] Satoshi
   - [ ] Mine
-- [ ] Mobile interface
-- [ ] 
+- [ ] Mobile-friendly
+- [ ] Use some library for the physicality of things? Like Material?
 
 ### Layout
 ```

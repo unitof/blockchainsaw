@@ -20,7 +20,7 @@ let ore = m({
   },
   // target
   // hash
-  nonce: 0
+  nonce: 45191988 // will be 45291998
   // time?
 })
 

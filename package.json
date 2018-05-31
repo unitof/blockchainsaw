@@ -2,7 +2,7 @@
   "name": "blockchainsaw",
   "version": "0.0.1",
   "description": "A realtime visualization of Bitcoin mining",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -20,5 +20,10 @@
   "bugs": {
     "url": "https://github.com/unitof/blockchainsaw/issues"
   },
-  "homepage": "https://github.com/unitof/blockchainsaw#readme"
+  "homepage": "https://github.com/unitof/blockchainsaw#readme",
+  "dependencies": {
+    "bitcoin-live-transactions": "github:unitof/bitcoin-live-transactions#master",
+    "bitcoin-miner": "^1.2.1",
+    "morphable": "^0.6.0"
+  }
 }

@@ -10,9 +10,14 @@ const CONFIG = {
 
 // TODO: Create some init Promise to populate all these with proper start values
 
-let transactions = m({
+let mempool = m({
   transactions: []
 })
+
+let blockchain = m({
+  blocks: []
+})
+blocks.setBlockchain(blockchain.blocks)
 
 let ore = m({
   version: 536870912,

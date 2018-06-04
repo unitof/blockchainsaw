@@ -3,7 +3,10 @@ const blocks = require('./modules/blocks')
 const btcMiner = require('bitcoin-miner')
 const m = require('morphable') // ❤ you Luke
 
-const CONFIG = {}
+const CONFIG = {
+  maxNonce: 2147483647,
+  mineRate: 1
+}
 
 // TODO: Create some init Promise to populate all these with proper start values
 

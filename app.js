@@ -31,17 +31,42 @@ btcNet.events.on('block', newBlock)
 btcNet.events.on('tx', tx => {
   console.log('new tx')
 })
+setInterval(swingPick, CONFIG.mineRate);
 
-const prospector = new btcMiner(ore.currentBlock);
+// FUNCTIONS
+// (to be split into modules?)
+
+function newBlock(block) {
+  console.log('new block', block.hash)
+  blocks.insert(block)
+  ore.previousblockhash = block.hash
+  restartProspector()
+}
+
+function restartProspector() {
+  ore.nonce = 0
+}
+
+// attempt one block hash, then increment nonce
+// (a while loop blocks all events)
+function swingPick() {
+  ore.hash = prospector.getHash(ore.nonce)
+  ore.time = Math.floor(Date.now() / 1000)
+  console.log('Trying nonce ' + ore.nonce + ': ' + ore.hash.toString('hex'))
+  if (isGold(ore.hash)) {
+    console.log('Mined! Nonce: ' + ore.nonce)
+    console.log('Man, really shoulda incorporated sending to Blockchain')
+  } else {
+    ore.nonce = ++ore.nonce % CONFIG.maxNonce; // rollover to 0
+  }
+}
+
+// check if hash < target
+function isGold(hash) {
+  return prospector.checkHash(hash)
+}
+
+const prospector = new btcMiner(ore);
 
 let found = false;
 ore.target = prospector.getTarget()
-while (ore.nonce < 8561950000 && !found) {
-  ore.hash = prospector.getHash(ore.nonce);
-  found = prospector.checkHash(ore.hash);
-  console.log('Trying nonce ' + ore.nonce + ': ' + ore.hash.toString('hex'))
-  if (found) {
-    console.log('Mined! Nonce: ' + ore.nonce)
-  }
-  ore.nonce++;
-}

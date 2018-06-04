@@ -1,4 +1,5 @@
-const btcEvents = require('bitcoin-live-transactions')
+const btcNet = require('./modules/network')
+const blocks = require('./modules/blocks')
 const btcMiner = require('bitcoin-miner')
 const m = require('morphable') // ❤ you Luke
 
@@ -24,8 +25,11 @@ let ore = m({
   // time?
 })
 
-let blockchain = m({
-  blocks: []
+// MINE
+
+btcNet.events.on('block', newBlock)
+btcNet.events.on('tx', tx => {
+  console.log('new tx')
 })
 
 const prospector = new btcMiner(ore.currentBlock);

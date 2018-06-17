@@ -2,6 +2,7 @@ const btcNet = require('./modules/network')
 const blocks = require('./modules/blocks')
 const btcMiner = require('bitcoin-miner')
 const audio = require('./modules/audio')
+const merkle = require('merkle-tree-gen')
 const w = require('./modules/web')
 const m = require('morphable') // ❤ you Luke
 
@@ -57,7 +58,7 @@ if (isRunningInBrowser()) {
   w.display(ore, 'time')
   w.display(ore, 'previousblockhash', 'last')
   w.displayLength(mempool, 'transactions', 'txs')
-  w.display(ore, 'merkleroot', 'mrkl') // currently not changing
+  w.display(ore, 'merkleroot', 'mrkl')
   w.display(ore, 'hash', 'hash')
   w.display(ore, 'target', 'trgt')
 }
@@ -88,6 +89,21 @@ function newBlock(blockhash) {
 function newTransaction(tx) {
   console.log('new tx', tx)
   mempool.transactions.push(tx)
+  setMerkleRoot(mempool.transactions)
+}
+
+function setMerkleRoot(txArr) {
+  const args = {
+    array: txArr.map(tx => tx.txid), // array of hashes
+    hashlist: true
+  }
+  merkle.fromArray(args, (err, tree) => {
+    if (err) {
+      console.error(err) // TODO: I hate this
+    }
+    // do stuff with tree here if we want
+    ore.merkleroot = tree.root
+  })
 }
 
 function restartMempool() {

@@ -44,6 +44,7 @@
     "browserify": "^16.2.2",
     "envify": "^4.1.0",
     "http-server": "^0.11.1",
+    "merkle-tree-gen": "^1.1.0",
     "morphable": "^0.6.0",
     "nanohtml": "^1.2.4"
   },

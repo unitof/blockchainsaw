@@ -2,7 +2,8 @@ const btcNet = require('./modules/network')
 const blocks = require('./modules/blocks')
 const btcMiner = require('bitcoin-miner')
 const audio = require('./modules/audio')
-const merkle = require('merkle-tree-gen')
+const merkleRoot = require('merkle-lib/fastRoot')
+const crypto = require('crypto')
 const w = require('./modules/web')
 const m = require('morphable') // ❤ you Luke
 
@@ -93,17 +94,9 @@ function newTransaction(tx) {
 }
 
 function setMerkleRoot(txArr) {
-  const args = {
-    array: txArr.map(tx => tx.txid), // array of hashes
-    hashlist: true
-  }
-  merkle.fromArray(args, (err, tree) => {
-    if (err) {
-      console.error(err) // TODO: I hate this
-    }
-    // do stuff with tree here if we want
-    ore.merkleroot = tree.root
-  })
+  // TODO: really shouldn't be reBuffering the whole thing every time; store separate array?
+  const hashArr = txArr.map( tx => Buffer.from(tx.txid, 'hex') ) // array of hash buffers
+  ore.merkleroot = merkleRoot(hashArr, sha256).toString('hex')
 }
 
 function restartMempool() {
@@ -142,4 +135,8 @@ function isGold(hash) {
 
 function isRunningInBrowser() {
   return process.browser
+}
+
+function sha256(data) {
+  return crypto.createHash('sha256').update(data).digest()
 }

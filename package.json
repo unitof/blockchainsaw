@@ -42,9 +42,10 @@
     "bitcoin-live-transactions": "github:unitof/bitcoin-live-transactions#master",
     "bitcoin-miner": "^1.2.1",
     "browserify": "^16.2.2",
+    "crypto": "^1.0.1",
     "envify": "^4.1.0",
     "http-server": "^0.11.1",
-    "merkle-tree-gen": "^1.1.0",
+    "merkle-lib": "^2.0.10",
     "morphable": "^0.6.0",
     "nanohtml": "^1.2.4"
   },

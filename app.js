@@ -1,6 +1,7 @@
 const btcNet = require('./modules/network')
 const blocks = require('./modules/blocks')
 const btcMiner = require('bitcoin-miner')
+const audio = require('./modules/audio')
 const w = require('./modules/web')
 const m = require('morphable') // ❤ you Luke
 
@@ -69,6 +70,7 @@ window.ore = ore;
 
 function newBlock(blockhash) {
   // blockhash is hash string
+  audio.beep()
   console.log('new block', blockhash)
   blocks.insert(blockhash)
   ore.previousblockhash = blockhash

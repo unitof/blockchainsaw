@@ -47,9 +47,7 @@ restartProspector()
 // MINE
 
 btcNet.events.on('block', newBlock)
-btcNet.events.on('tx', tx => {
-  console.log('new tx')
-})
+btcNet.events.on('tx', newTransaction)
 setInterval(swingPick, CONFIG.mineRate);
 
 // VISUALIZE
@@ -79,7 +77,19 @@ function newBlock(blockhash) {
   console.log('new block', blockhash)
   blocks.insert(blockhash)
   ore.previousblockhash = blockhash
+  restartMempool()
   restartProspector()
+}
+
+function newTransaction(tx) {
+  console.log('new tx', tx)
+  mempool.transactions.push(tx)
+}
+
+function restartMempool() {
+  mempool.transactions.length = 0
+  // more thorough than `= []`
+  // https://stackoverflow.com/a/1234337/1489243
 }
 
 function restartProspector() {

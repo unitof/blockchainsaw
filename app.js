@@ -23,7 +23,7 @@ blocks.setBlockchain(blockchain.blocks)
 
 let ore = m({
   version: 536870912,
-  previousblockhash: '00000000000000000061abcd4f51d81ddba5498cff67fed44b287de0990b7266',
+  previousblockhash: '0000000000000000000000000000000000000000000000000000000000000000',
   merkleroot: '871148c57dad60c0cde483233b099daa3e6492a91c13b337a5413a4c4f842978',
   set newHash(buffer) {
     this.hash = buffer

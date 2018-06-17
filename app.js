@@ -54,10 +54,11 @@ setInterval(swingPick, CONFIG.mineRate);
 // VISUALIZE
 
 if (isRunningInBrowser()) {
-  w.display(ore, 'time')
   w.display(ore, 'nonce')
-  w.display(ore, 'hash', '  hash')
-  w.display(ore, 'target')
+  w.display(ore, 'time')
+  w.display(ore, 'previousblockhash', 'last')
+  w.display(ore, 'hash', 'hash')
+  w.display(ore, 'target', 'trgt')
 }
 
 // DEBUG

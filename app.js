@@ -64,7 +64,11 @@ if (isRunningInBrowser()) {
 }
 
 // DEBUG
-window.ore = ore;
+if (process.env.NODE_ENV == 'development') {
+  window.ore = ore
+  window.mempool = mempool
+  window.blockchain = blockchain
+}
 
 // FUNCTIONS
 // (to be split into modules?)

@@ -5,10 +5,10 @@
   "main": "app.js",
   "scripts": {
     "build": "npm run build:js",
-    "build:js": "browserify --debug app.js -o www/built/browserified.js",
-    "dev": "npm run watch & npm serve:dev",
+    "build:js": "browserify --debug app.js -t envify -o www/built/browserified.js",
+    "dev": "NODE_ENV=development npm run watch & npm run serve:dev",
     "serve": "http-server -p 3000 www/",
-    "serve:dev": "live-server --port=3000 --no-browser --ignore=**/*.tmp-browserify-* ./www/",
+    "serve:dev": "live-server --port=3000 --no-browser --ignore=**/*.tmp-browserify-* www/",
     "start:terminal": "node app.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "watch": "npm-watch"
@@ -42,6 +42,7 @@
     "bitcoin-live-transactions": "github:unitof/bitcoin-live-transactions#master",
     "bitcoin-miner": "^1.2.1",
     "browserify": "^16.2.2",
+    "envify": "^4.1.0",
     "http-server": "^0.11.1",
     "morphable": "^0.6.0",
     "nanohtml": "^1.2.4"

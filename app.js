@@ -53,8 +53,7 @@ function restartProspector() {
   ore.nonce = 0
 }
 
-// attempt one block hash, then increment nonce
-// (a while loop blocks all events)
+// attempt one block hash, then if (when) it fails increment nonce
 function swingPick() {
   ore.hash = prospector.getHash(ore.nonce)
   ore.time = Math.floor(Date.now() / 1000)

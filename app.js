@@ -2,7 +2,7 @@ const btcNet = require('./modules/network')
 const blocks = require('./modules/blocks')
 const btcMiner = require('bitcoin-miner')
 const audio = require('./modules/audio')
-const merkleRoot = require('merkle-lib/fastRoot')
+const fastRoot = require('merkle-lib/fastRoot')
 const crypto = require('crypto')
 const w = require('./modules/web')
 const m = require('morphable') // ❤ you Luke
@@ -90,13 +90,13 @@ function newBlock(blockhash) {
 function newTransaction(tx) {
   console.log('new tx', tx)
   mempool.transactions.push(tx)
-  setMerkleRoot(mempool.transactions)
+  ore.merkleroot = merkleRoot(mempool.transactions)
 }
 
-function setMerkleRoot(txArr) {
+function merkleRoot(txArr) {
   // TODO: really shouldn't be reBuffering the whole thing every time; store separate array?
   const hashArr = txArr.map( tx => Buffer.from(tx.txid, 'hex') ) // array of hash buffers
-  ore.merkleroot = merkleRoot(hashArr, sha256).toString('hex')
+  return fastRoot(hashArr, sha256).toString('hex')
 }
 
 function restartMempool() {

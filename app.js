@@ -23,11 +23,20 @@ let ore = m({
   version: 536870912,
   previousblockhash: '00000000000000000061abcd4f51d81ddba5498cff67fed44b287de0990b7266',
   merkleroot: '871148c57dad60c0cde483233b099daa3e6492a91c13b337a5413a4c4f842978',
+  set newHash(buffer) {
+    this.hash = buffer
+    this.hash_friendly = buffer.toString('hex')
+  },
+  set newTarget(buffer) {
+    this.target = buffer
+    this.target_friendly = buffer.toString('hex')
+  },
   hash: undefined,
+  target: undefined,
   time: undefined,
   bits: '180091c1',
   // target
-  nonce: 0 // will be 45291998
+  nonce: 0
 })
 
 // MINE
@@ -55,9 +64,11 @@ function restartProspector() {
 
 // attempt one block hash, then if (when) it fails increment nonce
 function swingPick() {
-  ore.hash = prospector.getHash(ore.nonce)
   ore.time = Math.floor(Date.now() / 1000)
-  console.log('Trying nonce ' + ore.nonce + ': ' + ore.hash.toString('hex'))
+  ore.newHash = prospector.getHash(ore.nonce)
+  if (!isRunningInBrowser()) {
+    console.log('Trying nonce ' + ore.nonce + ': ' + ore.hash.toString('hex'))
+  }
   if (isGold(ore.hash)) {
     console.log('Mined! Nonce: ' + ore.nonce)
     console.log('Man, really shoulda incorporated sending to Blockchain')

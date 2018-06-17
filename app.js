@@ -41,10 +41,11 @@ setInterval(swingPick, CONFIG.mineRate);
 // FUNCTIONS
 // (to be split into modules?)
 
-function newBlock(block) {
-  console.log('new block', block.hash)
-  blocks.insert(block)
-  ore.previousblockhash = block.hash
+function newBlock(blockhash) {
+  // blockhash is hash string
+  console.log('new block', blockhash)
+  blocks.insert(blockhash)
+  ore.previousblockhash = blockhash
   restartProspector()
 }
 

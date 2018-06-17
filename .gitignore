@@ -3,6 +3,8 @@
 # Mostly repos I cloned to learn & copy from
 research/
 
+# Browserified & other compiled web stuff
+www/built/
 
 ###Node###
 

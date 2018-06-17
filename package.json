@@ -4,8 +4,22 @@
   "description": "A realtime visualization of Bitcoin mining",
   "main": "app.js",
   "scripts": {
+    "build": "npm run build:js",
+    "build:js": "browserify --debug app.js -o www/built/browserified.js",
+    "serve": "http-server -p 3000 www/",
     "start": "node app.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "npm-watch"
+  },
+  "watch": {
+    "build:js": {
+      "patterns": [
+        "app.js",
+        "package.json",
+        "modules/**/*"
+      ],
+      "ignore": "www/built"
+    }
   },
   "repository": {
     "type": "git",
@@ -25,6 +39,11 @@
   "dependencies": {
     "bitcoin-live-transactions": "github:unitof/bitcoin-live-transactions#master",
     "bitcoin-miner": "^1.2.1",
-    "morphable": "^0.6.0"
+    "browserify": "^16.2.2",
+    "http-server": "^0.11.1",
+    "morphable": "^0.6.0",
+  },
+  "devDependencies": {
+    "npm-watch": "^0.3.0"
   }
 }

@@ -13,6 +13,11 @@ module.exports.display = function(proxy, key, label = key) {
   document.getElementById('theApp').appendChild( el(proxy) )
 }
 
+module.exports.displayLength = function(proxy, key, label = key) {
+  const el = m(proxy => e`<code>${label}: ${proxy[key].length}<br></code>`)
+  document.getElementById('theApp').appendChild( el(proxy) )
+}
+
 // function shouldToString(val) {
 //   console.log('val', val)
 //   if (val == undefined) {

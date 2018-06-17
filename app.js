@@ -56,6 +56,7 @@ if (isRunningInBrowser()) {
   w.display(ore, 'nonce')
   w.display(ore, 'time')
   w.display(ore, 'previousblockhash', 'last')
+  w.displayLength(mempool, 'transactions', 'txs')
   w.display(ore, 'merkleroot', 'mrkl') // currently not changing
   w.display(ore, 'hash', 'hash')
   w.display(ore, 'target', 'trgt')
@@ -66,6 +67,9 @@ if (process.env.NODE_ENV == 'development') {
   window.ore = ore
   window.mempool = mempool
   window.blockchain = blockchain
+
+  window.newBlock = newBlock
+  window.newTransaction = newTransaction
 }
 
 // FUNCTIONS

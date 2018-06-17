@@ -6,8 +6,10 @@
   "scripts": {
     "build": "npm run build:js",
     "build:js": "browserify --debug app.js -o www/built/browserified.js",
+    "dev": "npm run watch & npm serve:dev",
     "serve": "http-server -p 3000 www/",
-    "start": "node app.js",
+    "serve:dev": "live-server --port=3000 --no-browser --ignore=**/*.tmp-browserify-* ./www/",
+    "start:terminal": "node app.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "watch": "npm-watch"
   },
@@ -45,6 +47,7 @@
     "nanohtml": "^1.2.4"
   },
   "devDependencies": {
+    "live-server": "^1.2.0",
     "npm-watch": "^0.3.0"
   }
 }

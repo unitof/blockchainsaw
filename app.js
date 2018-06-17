@@ -58,6 +58,7 @@ if (isRunningInBrowser()) {
   w.display(ore, 'nonce')
   w.display(ore, 'time')
   w.display(ore, 'previousblockhash', 'last')
+  w.display(ore, 'merkleroot', 'mrkl') // currently not changing
   w.display(ore, 'hash', 'hash')
   w.display(ore, 'target', 'trgt')
 }

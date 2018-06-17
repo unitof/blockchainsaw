@@ -42,6 +42,7 @@
     "browserify": "^16.2.2",
     "http-server": "^0.11.1",
     "morphable": "^0.6.0",
+    "nanohtml": "^1.2.4"
   },
   "devDependencies": {
     "npm-watch": "^0.3.0"

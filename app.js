@@ -1,6 +1,7 @@
 const btcNet = require('./modules/network')
 const blocks = require('./modules/blocks')
 const btcMiner = require('bitcoin-miner')
+const w = require('./modules/web')
 const m = require('morphable') // ❤ you Luke
 
 const CONFIG = {
@@ -39,6 +40,9 @@ let ore = m({
   nonce: 0
 })
 
+let prospector // TODO: this feels weird & clonky
+restartProspector()
+
 // MINE
 
 btcNet.events.on('block', newBlock)
@@ -46,6 +50,18 @@ btcNet.events.on('tx', tx => {
   console.log('new tx')
 })
 setInterval(swingPick, CONFIG.mineRate);
+
+// VISUALIZE
+
+if (isRunningInBrowser()) {
+  w.display(ore, 'time')
+  w.display(ore, 'nonce')
+  w.display(ore, 'hash', '  hash')
+  w.display(ore, 'target')
+}
+
+// DEBUG
+window.ore = ore;
 
 // FUNCTIONS
 // (to be split into modules?)
@@ -59,6 +75,8 @@ function newBlock(blockhash) {
 }
 
 function restartProspector() {
+  prospector = new btcMiner(ore)
+  ore.target = prospector.getTarget().toString('hex')
   ore.nonce = 0
 }
 
@@ -82,7 +100,8 @@ function isGold(hash) {
   return prospector.checkHash(hash)
 }
 
-const prospector = new btcMiner(ore);
+// UTILITIES
 
-let found = false;
-ore.target = prospector.getTarget()
+function isRunningInBrowser() {
+  return process.browser
+}

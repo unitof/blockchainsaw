@@ -24,9 +24,9 @@ let blockchain = m({
 blocks.setBlockchain(blockchain.blocks)
 
 let ore = m({
-  version: 536870912,
+  version: 536870912, // 2 in reverse endian hex, or something like that
   previousblockhash: '0000000000000000000000000000000000000000000000000000000000000000',
-  merkleroot: '871148c57dad60c0cde483233b099daa3e6492a91c13b337a5413a4c4f842978',
+  merkleroot: '0000000000000000000000000000000000000000000000000000000000000000',
   set newHash(buffer) {
     this.hash = buffer
     this.hash_friendly = buffer.toString('hex')

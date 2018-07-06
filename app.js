@@ -90,6 +90,7 @@ function newTransaction(tx) {
   console.log('new tx', tx)
   mempool.transactions.push(tx)
   ore.merkleroot = merkleRoot(mempool.transactions)
+  restartProspector() // get new merkleRoot
 }
 
 function merkleRoot(txArr) {

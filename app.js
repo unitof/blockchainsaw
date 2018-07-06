@@ -107,7 +107,7 @@ function restartMempool() {
 
 function restartProspector() {
   prospector = new btcMiner(ore)
-  ore.target = prospector.getTarget().toString('hex')
+  ore.newTarget = prospector.getTarget()
   ore.nonce = 0
 }
 

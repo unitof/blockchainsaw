@@ -6,7 +6,7 @@ function replaceWith(oldEl, newEl) {
 }
 
 module.exports.display = function(proxy, key, label = key) {
-  if (key == 'hash') {
+  if (key == 'hash' || key == 'target') {
     key += '_friendly';
   }
   const el = m(proxy => e`<code>${label}: ${proxy[key]}<br></code>`)

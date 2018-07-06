@@ -94,7 +94,8 @@ function newTransaction(tx) {
 }
 
 function merkleRoot(txArr) {
-  // TODO: really shouldn't be reBuffering the whole thing every time; store separate array?
+  // TODO: how expensive is mapping & Buffering whole mempool each time?
+  // Should I use a setter instead, and store all Buffers in separate merkle-ready mempool.merkleLeaves array?
   const hashArr = txArr.map( tx => Buffer.from(tx.txid, 'hex') ) // array of hash buffers
   return fastRoot(hashArr, sha256).toString('hex')
 }

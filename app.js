@@ -39,7 +39,6 @@ let ore = m({
   target: undefined,
   time: undefined,
   bits: '180091c1',
-  // target
   nonce: 0
 })
 

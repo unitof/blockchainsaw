@@ -41,16 +41,18 @@
   "dependencies": {
     "bitcoin-live-transactions": "github:unitof/bitcoin-live-transactions#master",
     "bitcoin-miner": "^1.2.1",
-    "browserify": "^16.2.2",
+    "browserify": "^16.2.3",
     "crypto": "^1.0.1",
     "envify": "^4.1.0",
     "http-server": "^0.11.1",
     "merkle-lib": "^2.0.10",
-    "morphable": "^0.6.0",
-    "nanohtml": "^1.2.4"
+    "morphable": "^0.6.1",
+    "nanohtml": "^1.2.6"
   },
   "devDependencies": {
     "live-server": "^1.2.0",
-    "npm-watch": "^0.3.0"
+    "mocha": "^5.2.0",
+    "npm-watch": "^0.3.0",
+    "rewire": "^4.0.1"
   }
 }

@@ -44,7 +44,7 @@
     "browserify": "^16.2.3",
     "crypto": "^1.0.1",
     "envify": "^4.1.0",
-    "http-server": "^0.11.1",
+    "http-server": "^0.11.2",
     "merkle-lib": "^2.0.10",
     "morphable": "^0.6.1",
     "nanohtml": "^1.2.6"
